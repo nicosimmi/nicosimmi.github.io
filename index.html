@@ -71,9 +71,9 @@
       <section class="hero wrap" id="inicio">
         <div class="hero__id">
           <h1 class="name" id="name">
-            <span class="name__line">Nicolás</span>
-            <span class="name__line">Simón</span>
-            <span class="name__line">Milano</span>
+            <span class="name__line sd-top">Nicolás</span>
+            <span class="name__line sd-top">Simón</span>
+            <span class="name__line sd-top">Milano</span>
           </h1>
           <p class="hero__lead">
             Desarrollador full stack en Córdoba. Hago webs y aplicaciones de principio a fin: React y TypeScript
@@ -86,7 +86,7 @@
           </div>
         </div>
 
-        <div class="week" aria-labelledby="t-week">
+        <div class="week sd-top" aria-labelledby="t-week">
           <div class="week__head">
             <h2 id="t-week" class="week__title">Mi semana</h2>
             <p class="week__sub">Tengo todos los huecos libres. Elige uno y te preparo un email para proponerme una entrevista.</p>
@@ -109,7 +109,7 @@
       </section>
 
       <section class="sec wrap" id="sobre-mi" aria-labelledby="t-sobre">
-        <h2 id="t-sobre" class="h2">Frontend, backend y lo que une las dos partes.</h2>
+        <h2 id="t-sobre" class="h2 sd-in">Frontend, backend y lo que une las dos partes.</h2>
         <div class="about">
           <div class="prose">
             <p>
@@ -146,11 +146,11 @@
       </section>
 
       <section class="sec wrap" id="proyectos" aria-labelledby="t-proyectos">
-        <h2 id="t-proyectos" class="h2">Lo que he construido.</h2>
+        <h2 id="t-proyectos" class="h2 sd-in">Lo que he construido.</h2>
 
         <article class="project" aria-labelledby="t-agendia">
           <header class="project__head">
-            <h3 id="t-agendia" class="project__name">AgendIA <span class="tag">Demo</span></h3>
+            <h3 id="t-agendia" class="project__name sd-in">AgendIA <span class="tag">Demo</span></h3>
             <p class="project__meta">Proyecto personal, octubre y noviembre de 2026</p>
             <p class="project__lead">
               Demo de un marketplace de reservas con asistente de IA. Los negocios gestionan su agenda y los clientes
@@ -163,19 +163,35 @@
             </div>
           </header>
 
-          <div class="shots">
-            <figure class="shot shot--main">
-              <img src="img/agendia-asistente.webp" width="1280" height="760" loading="lazy" alt="El asistente de AgendIA propone una reserva de corte de pelo con su tarjeta de confirmación." />
-              <figcaption>El asistente propone la reserva y la persona la confirma con un clic.</figcaption>
-            </figure>
-            <figure class="shot">
-              <img src="img/agendia-negocio.webp" width="1280" height="760" loading="lazy" alt="Ficha de un negocio en AgendIA con sus servicios y el selector de reserva." />
-              <figcaption>Ficha del negocio y reserva en pocos pasos.</figcaption>
-            </figure>
-            <figure class="shot">
-              <img src="img/agendia-agenda.webp" width="1280" height="760" loading="lazy" alt="Agenda del negocio en AgendIA con la reserva de un cliente." />
-              <figcaption>La reserva aparece en la agenda del negocio.</figcaption>
-            </figure>
+          <div class="story" id="story">
+            <div class="story__stage">
+              <figure class="stage__shot">
+                <img src="img/agendia-negocio.webp" width="1280" height="760" loading="lazy" alt="Ficha de un negocio en AgendIA con sus servicios y el selector de reserva." />
+              </figure>
+              <figure class="stage__shot">
+                <img src="img/agendia-asistente.webp" width="1280" height="760" loading="lazy" alt="El asistente de AgendIA propone una reserva de corte de pelo con su tarjeta de confirmación." />
+              </figure>
+              <figure class="stage__shot">
+                <img src="img/agendia-agenda.webp" width="1280" height="760" loading="lazy" alt="Agenda del negocio en AgendIA con la reserva de un cliente." />
+              </figure>
+            </div>
+            <div class="story__steps">
+              <div class="step">
+                <p class="step__n">1</p>
+                <h4>Cada negocio, su ficha</h4>
+                <p>Servicios, precios y horarios. Reservar es elegir servicio, profesional y hora.</p>
+              </div>
+              <div class="step">
+                <p class="step__n">2</p>
+                <h4>El asistente propone</h4>
+                <p>Le cuentas qué quieres y cuándo. Te devuelve un hueco concreto, y la reserva solo se hace cuando tú la confirmas.</p>
+              </div>
+              <div class="step">
+                <p class="step__n">3</p>
+                <h4>Y aparece en la agenda</h4>
+                <p>El negocio ve la cita al momento y recibe el email de aviso, que se reintenta si falla el envío.</p>
+              </div>
+            </div>
           </div>
 
           <ul class="points">
@@ -217,7 +233,7 @@
       </section>
 
       <section class="sec wrap" id="trayectoria" aria-labelledby="t-tray">
-        <h2 id="t-tray" class="h2">Trayectoria.</h2>
+        <h2 id="t-tray" class="h2 sd-in">Trayectoria.</h2>
 
         <div class="gantt" id="gantt">
           <p class="gantt__key">
@@ -235,7 +251,7 @@
                 <p class="row__org">Proyecto personal</p>
                 <p class="row__when">Oct - Nov 2026</p>
               </div>
-              <div class="track" aria-hidden="true"><span class="b b--agendia"></span></div>
+              <div class="track sd-in" aria-hidden="true"><span class="b sd-in b--agendia"></span></div>
             </li>
             <li class="row">
               <div class="row__info">
@@ -243,7 +259,7 @@
                 <p class="row__org">AICOR Consultores Informáticos, consultoría tecnológica</p>
                 <p class="row__when">Ene - Mar 2026 en prácticas, Jun - Sep 2026 como empleado</p>
               </div>
-              <div class="track" aria-hidden="true"><span class="b b--light b--aicor1"></span><span class="b b--aicor2"></span></div>
+              <div class="track sd-in" aria-hidden="true"><span class="b sd-in b--light b--aicor1"></span><span class="b sd-in b--aicor2"></span></div>
               <ul class="row__list">
                 <li>Desarrollo web full stack con PHP y JavaScript y gestión de WordPress, del desarrollo al despliegue.</li>
                 <li>Flujos de automatización e integraciones con n8n y scripts en Python.</li>
@@ -257,7 +273,7 @@
                 <p class="row__org">Player Factory Paintball</p>
                 <p class="row__when">Feb - Mar 2025 en prácticas</p>
               </div>
-              <div class="track" aria-hidden="true"><span class="b b--light b--pf"></span></div>
+              <div class="track sd-in" aria-hidden="true"><span class="b sd-in b--light b--pf"></span></div>
               <ul class="row__list">
                 <li>Modificación, actualización y mantenimiento técnico de varias plataformas web de la empresa.</li>
                 <li>Mejoras en la interfaz y resolución de incidencias en producción.</li>
@@ -269,16 +285,16 @@
                 <p class="row__org">ILERNA Córdoba</p>
                 <p class="row__when">2024 - 2026</p>
               </div>
-              <div class="track" aria-hidden="true"><span class="b b--light b--ilerna"></span></div>
+              <div class="track sd-in" aria-hidden="true"><span class="b sd-in b--light b--ilerna"></span></div>
             </li>
           </ol>
         </div>
       </section>
 
       <section class="sec wrap contact" id="contacto" aria-labelledby="t-contacto">
-        <h2 id="t-contacto" class="h2">Hablemos.</h2>
+        <h2 id="t-contacto" class="h2 sd-in">Hablemos.</h2>
         <p class="contact__lead">Busco incorporarme a un equipo de desarrollo. Escríbeme o elige un hueco en <a href="#inicio">mi semana</a>.</p>
-        <a class="contact__mail" href="mailto:simonmilanonicolas@gmail.com">simonmilanonicolas@gmail.com</a>
+        <a class="contact__mail sd-in" href="mailto:simonmilanonicolas@gmail.com">simonmilanonicolas@gmail.com</a>
         <div class="actions">
           <a class="btn" href="https://www.linkedin.com/in/nicolas-simon-milano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a class="btn" href="https://github.com/nicosimmi" target="_blank" rel="noopener noreferrer">GitHub</a>

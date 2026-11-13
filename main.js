@@ -177,6 +177,55 @@ document.getElementById("offer-reset").addEventListener("click", () => {
   picked = null;
 });
 
+// Historia de AgendIA: manda el paso más cercano al centro de la pantalla
+const story = document.getElementById("story");
+const steps = [...story.querySelectorAll(".step")];
+const shots = [...story.querySelectorAll(".stage__shot")];
+story.classList.add("is-live");
+let step = -1;
+function syncStory() {
+  const mid = innerHeight / 2;
+  let best = 0;
+  let dist = Infinity;
+  steps.forEach((el, i) => {
+    const r = el.getBoundingClientRect();
+    const d = Math.abs((r.top + r.bottom) / 2 - mid);
+    if (d < dist) {
+      dist = d;
+      best = i;
+    }
+  });
+  if (best === step) return;
+  step = best;
+  steps.forEach((el, k) => el.classList.toggle("is-active", k === best));
+  shots.forEach((el, k) => el.classList.toggle("is-on", k === best));
+}
+syncStory();
+addEventListener("scroll", syncStory, { passive: true });
+
+// Animaciones de scroll: si el navegador no las lleva por CSS, se escribe --p
+// (0 a 1) en cada elemento y el CSS lo convierte en tiempo de animación.
+const native = CSS.supports("animation-timeline: view()");
+root.classList.toggle("sd-native", native);
+if (!native && !reduce) {
+  const ins = [...document.querySelectorAll(".sd-in")];
+  const tops = [...document.querySelectorAll(".sd-top")];
+  const clamp = (v) => Math.min(1, Math.max(0, v));
+  const update = () => {
+    const vh = innerHeight;
+    for (const el of ins) {
+      const r = el.getBoundingClientRect();
+      // 0 cuando el borde superior entra por abajo; 1 al 35 % del recorrido, como en el CSS
+      el.style.setProperty("--p", clamp((vh - r.top) / (vh + r.height) / 0.35));
+    }
+    const top = clamp(scrollY / (vh * 0.45));
+    for (const el of tops) el.style.setProperty("--p", top);
+  };
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  update();
+}
+
 // Trayectoria: línea de hoy sobre el Gantt (septiembre de 2024 a diciembre de 2026)
 const gantt = document.getElementById("gantt");
 const monthsIn = (now.getFullYear() - 2024) * 12 + now.getMonth() - 8;
@@ -196,6 +245,8 @@ function start() {
   started = true;
   fitName();
   requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add("is-ready")));
+  // Cuando el nombre ha terminado de estirarse, el scroll pasa a gobernarlo
+  setTimeout(() => root.classList.add("is-settled"), reduce ? 0 : 1700);
   let lastWidth = name.clientWidth;
   new ResizeObserver(() => {
     if (name.clientWidth === lastWidth) return;

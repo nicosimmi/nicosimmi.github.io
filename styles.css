@@ -310,6 +310,7 @@ button {
   transition-delay: calc(var(--i, 0) * 110ms);
 }
 .name.is-measuring .name__line {
+  animation: none;
   transition: none;
 }
 .hero__lead {
@@ -696,32 +697,80 @@ button {
   margin-top: 0.5rem;
 }
 
-.shots {
+/* Historia de AgendIA: la captura se queda fija y cambia con cada paso */
+.story {
   display: grid;
-  gap: 1rem;
-  margin-block: 3.5rem;
+  gap: 0 4rem;
+  margin-block: 3rem 4rem;
 }
-@media (min-width: 900px) {
-  .shots {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    grid-template-rows: auto auto;
-  }
-  .shot--main {
-    grid-row: span 2;
-  }
-}
-.shot img {
-  width: 100%;
+.story__stage {
+  position: sticky;
+  top: 4.5rem;
+  z-index: 1;
+  aspect-ratio: 1280 / 760;
   border: 1px solid var(--line);
   border-radius: 14px;
+  overflow: hidden;
   background: var(--surface);
+  box-shadow: var(--shadow);
 }
-.shot figcaption {
-  margin-top: 0.6rem;
+.stage__shot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(6%) scale(0.98);
+  transition: opacity 0.5s, transform 0.9s var(--ease);
+}
+.stage__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.stage__shot.is-on,
+.story:not(.is-live) .stage__shot:first-child {
+  opacity: 1;
+  transform: none;
+}
+.step {
+  display: grid;
+  align-content: center;
+  gap: 0.4rem;
+  min-height: 52vh;
+  max-width: 38ch;
+  transition: opacity 0.4s;
+}
+.is-live .step:not(.is-active) {
+  opacity: 0.35;
+}
+.step__n {
   font-family: var(--display);
-  font-size: 0.88rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--cobalt);
+}
+.step h4 {
+  font-family: var(--display);
+  font-weight: 750;
+  font-stretch: 112%;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.1;
+}
+.step p:last-child {
+  font-size: 1.1rem;
   color: var(--muted);
-  line-height: 1.4;
+}
+@media (min-width: 900px) {
+  .story {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+  }
+  .story__stage {
+    order: 1;
+    top: 6rem;
+  }
+  .step {
+    min-height: 62vh;
+  }
 }
 
 .points {
@@ -959,12 +1008,11 @@ button {
   overflow-wrap: anywhere;
   text-decoration: none;
   background: linear-gradient(var(--cobalt), var(--cobalt)) left bottom / 0 3px no-repeat;
-  transition: background-size 0.5s var(--ease), color 0.2s, font-stretch 0.5s var(--ease);
+  transition: background-size 0.5s var(--ease), color 0.2s;
 }
 .contact__mail:hover {
   color: var(--cobalt);
   background-size: 100% 3px;
-  font-stretch: 92%;
 }
 
 .foot {
@@ -979,19 +1027,23 @@ button {
   color: var(--muted);
 }
 
-/* Animaciones ligadas al scroll, solo donde el navegador las soporta */
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .b {
-      animation: grow linear both;
-      animation-timeline: view();
-      animation-range: entry 10% cover 40%;
-    }
-    .shot--main img {
-      animation: settle linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 45%;
-    }
+/* Animaciones ligadas al scroll. Cada pieza declara su animación con
+   longhands; al final, .sd-in y .sd-top deciden quién lleva el tiempo: el
+   scroll nativo (animation-timeline) o main.js con --p en los demás. */
+@keyframes squeeze {
+  to {
+    font-stretch: 50%;
+  }
+}
+@keyframes lift {
+  to {
+    transform: translateY(-8vh);
+  }
+}
+@keyframes widen {
+  from {
+    font-stretch: 62%;
+    opacity: 0;
   }
 }
 @keyframes grow {
@@ -999,15 +1051,71 @@ button {
     transform: scaleX(0);
   }
 }
-@keyframes settle {
+@keyframes draw {
   from {
-    transform: scale(0.92) translateY(2rem);
+    transform: scaleY(0);
   }
+}
+.is-settled .name__line {
+  animation-name: squeeze;
+}
+/* Solo cuando la agenda va al lado del nombre; en una columna chocaría con los botones */
+@media (min-width: 980px) {
+  .week {
+    animation-name: lift;
+  }
+}
+.h2,
+.project__name,
+.contact__mail {
+  animation-name: widen;
+}
+.b {
+  animation-name: grow;
+}
+.has-now .track::after {
+  animation-name: draw;
+  transform-origin: top;
+}
+.name__line,
+.week,
+.h2,
+.project__name,
+.contact__mail,
+.b,
+.has-now .track::after {
+  animation-duration: 1s;
+  animation-timing-function: var(--ease);
+  animation-fill-mode: both;
+}
+@supports (animation-timeline: view()) {
+  .sd-in,
+  .has-now .track::after {
+    animation-timeline: view();
+    animation-range: cover 0% cover 35%;
+  }
+  .sd-top {
+    animation-timeline: scroll(root);
+    animation-range: 0px 45vh;
+  }
+}
+/* Sin soporte nativo, main.js escribe --p (0 a 1) y se lee como tiempo */
+html.js:not(.sd-native) .sd-in,
+html.js:not(.sd-native) .sd-top,
+html.js:not(.sd-native) .has-now .track::after {
+  animation-play-state: paused;
+  animation-delay: calc(var(--p, 0) * -1s);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .sd-in,
+  .sd-top,
+  .has-now .track::after,
+  .is-settled .name__line {
+    animation-name: none;
   }
   *,
   *::before,
