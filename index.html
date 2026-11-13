@@ -9,7 +9,7 @@
       content="Portfolio de Nicolás Simón Milano, desarrollador Full Stack en Córdoba. React, TypeScript, Node.js, PostgreSQL y Docker. Proyecto destacado: la demo de AgendIA, una plataforma de reservas con asistente de IA."
     />
     <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0d1015" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href="https://nicosimmi.github.io/" />
@@ -28,8 +28,8 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preload" href="fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/kulim-park-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/anybody-vf.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/source-serif-4-vf.woff2" as="font" type="font/woff2" crossorigin />
     <script src="theme.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
@@ -39,6 +39,7 @@
         "name": "Nicolás Simón Milano",
         "jobTitle": "Desarrollador Full Stack",
         "url": "https://nicosimmi.github.io/",
+        "email": "mailto:simonmilanonicolas@gmail.com",
         "address": { "@type": "PostalAddress", "addressRegion": "Córdoba", "addressCountry": "ES" },
         "alumniOf": "ILERNA Córdoba",
         "sameAs": ["https://github.com/nicosimmi", "https://www.linkedin.com/in/nicolas-simon-milano/"]
@@ -48,15 +49,14 @@
   <body>
     <a class="skip" href="#contenido">Saltar al contenido</a>
 
-    <header class="nav" id="nav">
-      <div class="wrap nav__in">
-        <a class="nav__brand" href="#inicio" aria-label="Nicolás Simón Milano, inicio">NSM</a>
+    <header class="bar" id="bar">
+      <div class="wrap bar__in">
+        <a class="bar__brand" href="#inicio">Nicolás Simón</a>
         <nav aria-label="Principal">
-          <ul class="nav__links">
+          <ul class="bar__links">
             <li><a href="#sobre-mi">Sobre mí</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#experiencia">Experiencia</a></li>
-            <li><a href="#stack">Stack</a></li>
+            <li><a href="#trayectoria">Trayectoria</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
@@ -68,218 +68,227 @@
     </header>
 
     <main id="contenido">
-      <section class="hero" id="inicio">
-        <div class="wrap">
-          <p class="eyebrow hero__eyebrow">Desarrollador Full Stack · Córdoba</p>
-          <h1 class="hero__name">Nicolás<br />Simón Milano</h1>
+      <section class="hero wrap" id="inicio">
+        <div class="hero__id">
+          <h1 class="name" id="name">
+            <span class="name__line">Nicolás</span>
+            <span class="name__line">Simón</span>
+            <span class="name__line">Milano</span>
+          </h1>
           <p class="hero__lead">
-            Desarrollo webs y aplicaciones de principio a fin: frontend con React y TypeScript, backend con
-            Node.js, PHP o Python, sobre PostgreSQL y Docker.
+            Desarrollador full stack en Córdoba. Hago webs y aplicaciones de principio a fin: React y TypeScript
+            en el navegador, Node.js, PHP o Python en el servidor.
           </p>
-          <ul class="hero__chips" aria-label="Resumen">
-            <li>Técnico Superior en DAW</li>
-            <li><span class="dot" aria-hidden="true"></span>Disponibilidad total</li>
-          </ul>
-          <div class="hero__cta">
-            <a class="btn btn--solid" href="#proyectos">Ver la demo de AgendIA
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-            </a>
-            <a class="btn" href="https://www.linkedin.com/in/nicolas-simon-milano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <div class="actions">
+            <a class="btn btn--solid" href="#proyectos">Ver la demo de AgendIA</a>
             <a class="btn" href="https://github.com/nicosimmi" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/nicolas-simon-milano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
-      </section>
 
-      <section class="sec" id="sobre-mi" aria-labelledby="t-sobre">
-        <div class="wrap">
-          <p class="eyebrow reveal"><span>01</span> Sobre mí</p>
-          <div class="about">
-            <div class="about__text reveal">
-              <h2 id="t-sobre" class="h2">Frontend, backend y la parte que une las dos.</h2>
-              <p>
-                Soy desarrollador Full Stack, titulado como Técnico Superior en Desarrollo de Aplicaciones Web en
-                ILERNA Córdoba. En AICOR Consultores Informáticos hice webs y aplicaciones para clientes y
-                automaticé procesos con n8n.
-              </p>
-              <p>
-                En mis proyectos trabajo con pruebas automáticas, integración continua y entornos reproducibles
-                con Docker. Uso la IA en mi día a día como desarrollador, y en AgendIA la llevé al producto: un
-                asistente que propone reservas y un servidor MCP propio.
-              </p>
-            </div>
-            <dl class="facts reveal">
-              <div><dt>Ubicación</dt><dd>Córdoba, España</dd></div>
-              <div><dt>Formación</dt><dd>Técnico Superior en Desarrollo de Aplicaciones Web, ILERNA Córdoba (2024-2026)</dd></div>
-              <div><dt>Idiomas</dt><dd>Castellano nativo<br />Inglés medio-alto</dd></div>
-              <div><dt>Disponibilidad</dt><dd>Total. Carnets B, A2, A1 y AM, y vehículo propio</dd></div>
-            </dl>
+        <div class="week" aria-labelledby="t-week">
+          <div class="week__head">
+            <h2 id="t-week" class="week__title">Mi semana</h2>
+            <p class="week__sub">Tengo todos los huecos libres. Elige uno y te preparo un email para proponerme una entrevista.</p>
           </div>
-        </div>
-      </section>
-
-      <section class="sec" id="proyectos" aria-labelledby="t-proyectos">
-        <div class="wrap">
-          <p class="eyebrow reveal"><span>02</span> Proyectos</p>
-          <h2 id="t-proyectos" class="h2 reveal">Lo que he construido.</h2>
-
-          <article class="project reveal" aria-labelledby="t-agendia">
-            <header class="project__head">
-              <p class="meta">Proyecto personal · Demo · Oct - Nov 2026</p>
-              <h3 id="t-agendia" class="h3">AgendIA</h3>
-              <p class="project__lead">
-                Demo de un marketplace de reservas con asistente de IA. No es un producto ni tiene usuarios reales: lo hice para enseñar cómo trabajo de principio a fin. Los negocios se dan de alta y gestionan su agenda; los
-                clientes reservan con una interfaz de toda la vida o hablando con el asistente.
-              </p>
-              <div class="project__links">
-                <a class="btn btn--solid" href="https://nicosimmi.github.io/AgendIA/" target="_blank" rel="noopener noreferrer">Probar la demo
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-                </a>
-                <a class="btn" href="https://github.com/nicosimmi/AgendIA" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
+          <div class="cal" id="cal"></div>
+          <p class="week__fallback">
+            Escríbeme a <a href="mailto:simonmilanonicolas@gmail.com">simonmilanonicolas@gmail.com</a> y buscamos un hueco.
+          </p>
+          <div class="offer" id="offer" aria-live="polite">
+            <div class="offer__in">
+              <p class="offer__when" id="offer-when"></p>
+              <p class="offer__note">Se abrirá tu correo con el mensaje escrito. Yo te respondo para confirmarla.</p>
+              <div class="actions">
+                <a class="btn btn--solid" id="offer-send" href="mailto:simonmilanonicolas@gmail.com">Enviar la propuesta</a>
+                <button class="btn" id="offer-reset" type="button">Cambiar de hueco</button>
               </div>
-            </header>
-
-            <div class="shots">
-              <figure class="shot shot--main">
-                <div class="frame"><span></span><span></span><span></span></div>
-                <img src="img/agendia-asistente.webp" width="1280" height="760" loading="lazy" alt="El asistente de AgendIA propone una reserva de corte de pelo con su tarjeta de confirmación." />
-                <figcaption>El asistente propone la reserva y la persona la confirma con un clic.</figcaption>
-              </figure>
-              <figure class="shot">
-                <div class="frame"><span></span><span></span><span></span></div>
-                <img src="img/agendia-negocio.webp" width="1280" height="760" loading="lazy" alt="Ficha de un negocio en AgendIA con sus servicios y el selector de reserva." />
-                <figcaption>Ficha del negocio y reserva en pocos pasos.</figcaption>
-              </figure>
-              <figure class="shot">
-                <div class="frame"><span></span><span></span><span></span></div>
-                <img src="img/agendia-agenda.webp" width="1280" height="760" loading="lazy" alt="Agenda del negocio en AgendIA con la reserva de un cliente." />
-                <figcaption>La reserva aparece en la agenda del negocio.</figcaption>
-              </figure>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <ul class="stats" aria-label="Datos del proyecto">
-              <li><strong>51</strong><span>casos de evaluación del asistente, incluida la inyección de prompts</span></li>
-              <li><strong>Todas</strong><span>las rutas de la API con test de aislamiento entre negocios</span></li>
-              <li><strong>0 €</strong><span>de infraestructura: la demo es estática y vive en GitHub Pages</span></li>
-            </ul>
-
-            <ul class="points">
-              <li>
-                <h4>El asistente propone, el servidor confirma</h4>
-                <p>Al modelo solo se le exponen herramientas de lectura y de propuesta. Aunque alguien lo manipulara con texto malicioso, no podría reservar.</p>
-              </li>
-              <li>
-                <h4>Servidor MCP propio</h4>
-                <p>Cualquier cliente compatible, como Claude Desktop, puede buscar y reservar con tokens que caducan, se revocan y llevan permisos separados.</p>
-              </li>
-              <li>
-                <h4>Aislamiento entre negocios</h4>
-                <p>El identificador del negocio sale siempre de la sesión. Un test recorre todas las rutas de la API y el CI falla si falta alguna.</p>
-              </li>
-              <li>
-                <h4>Emails que no se pierden</h4>
-                <p>Cada reserva anota un evento en la misma transacción (patrón outbox) y n8n lo entrega con reintentos.</p>
-              </li>
-            </ul>
-
-            <p class="note">
-              Es una demo: funciona entera en el navegador, sin servidor ni registro, y todos los negocios, reservas y personas son ficticios. El asistente sigue un guion porque un modelo real necesita una API de pago. El código y la
-              configuración del modelo están en el repositorio.
+      <section class="sec wrap" id="sobre-mi" aria-labelledby="t-sobre">
+        <h2 id="t-sobre" class="h2">Frontend, backend y lo que une las dos partes.</h2>
+        <div class="about">
+          <div class="prose">
+            <p>
+              Soy Técnico Superior en Desarrollo de Aplicaciones Web por ILERNA Córdoba. En AICOR Consultores
+              Informáticos hice webs y aplicaciones para clientes y automaticé procesos con n8n.
             </p>
-
-            <ul class="tags" aria-label="Tecnologías">
-              <li>TypeScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Fastify</li><li>Zod</li>
-              <li>PostgreSQL</li><li>Drizzle</li><li>MCP</li><li>n8n</li><li>Docker Compose</li>
-              <li>Vitest</li><li>Playwright</li><li>GitHub Actions</li>
-            </ul>
-          </article>
-
-          <article class="project project--small reveal" aria-labelledby="t-blue">
-            <p class="meta">Con AICOR</p>
-            <h3 id="t-blue" class="h3 h3--sm">Blueaitracking</h3>
-            <p class="project__lead">Proyecto que desarrollé junto al equipo de AICOR durante mi etapa en la empresa.</p>
-          </article>
+            <p>
+              En mis proyectos trabajo con pruebas automáticas, integración continua y entornos reproducibles con
+              Docker. Uso la IA en mi día a día como desarrollador, y en AgendIA la llevé al producto: un asistente
+              que propone reservas y un servidor MCP propio.
+            </p>
+          </div>
+          <dl class="facts">
+            <div><dt>Vivo en</dt><dd>Alcolea, Córdoba</dd></div>
+            <div><dt>Idiomas</dt><dd>Castellano nativo, inglés medio-alto</dd></div>
+            <div><dt>Disponibilidad</dt><dd>Total, con vehículo propio</dd></div>
+            <div><dt>Carnets</dt><dd>B, A2, A1 y AM</dd></div>
+          </dl>
         </div>
+
+        <h3 class="h3 stack__title" id="stack">Con qué trabajo</h3>
+        <dl class="stack">
+          <div><dt>Lenguajes</dt><dd>HTML5, CSS3, JavaScript, TypeScript, PHP, Python, Java, SQL</dd></div>
+          <div><dt>Frontend</dt><dd>React, Vite, Tailwind CSS</dd></div>
+          <div><dt>Backend</dt><dd>Node.js, Fastify, Laravel, Django</dd></div>
+          <div><dt>Bases de datos</dt><dd>PostgreSQL, MySQL, Drizzle ORM</dd></div>
+          <div><dt>Testing y CI/CD</dt><dd>Vitest, Playwright, GitHub Actions</dd></div>
+          <div><dt>DevOps</dt><dd>Docker, Docker Compose, Git, GitHub</dd></div>
+          <div><dt>IA</dt><dd>MCP, evaluación de LLMs</dd></div>
+          <div><dt>Automatización</dt><dd>n8n</dd></div>
+          <div><dt>CMS y e-commerce</dt><dd>WordPress, WooCommerce, Elementor</dd></div>
+        </dl>
+        <p class="soft">Y lo que no sale en el código: buena comunicación, resolución de problemas, trabajo en equipo, adaptabilidad y gestión del tiempo.</p>
       </section>
 
-      <section class="sec" id="experiencia" aria-labelledby="t-exp">
-        <div class="wrap">
-          <p class="eyebrow reveal"><span>03</span> Experiencia</p>
-          <h2 id="t-exp" class="h2 reveal">Dónde he trabajado.</h2>
+      <section class="sec wrap" id="proyectos" aria-labelledby="t-proyectos">
+        <h2 id="t-proyectos" class="h2">Lo que he construido.</h2>
 
-          <ol class="timeline">
-            <li class="job reveal">
-              <p class="job__date">Ene - Mar 2026<br />Prácticas<br />Jun - Sep 2026<br />Empleado</p>
-              <div>
-                <h3 class="h3 h3--sm">Desarrollador Full Stack</h3>
-                <p class="job__org">AICOR Consultores Informáticos · Consultoría tecnológica</p>
-                <ul class="list">
-                  <li>Desarrollo web Full Stack con PHP y JavaScript y gestión de WordPress, del desarrollo al despliegue.</li>
-                  <li>Flujos de automatización e integraciones con n8n y scripts en Python.</li>
-                  <li>Entornos de desarrollo locales con Docker y control de versiones en GitHub.</li>
-                  <li>Diseño y optimización de bases de datos relacionales (MySQL y PostgreSQL).</li>
-                </ul>
-              </div>
+        <article class="project" aria-labelledby="t-agendia">
+          <header class="project__head">
+            <h3 id="t-agendia" class="project__name">AgendIA <span class="tag">Demo</span></h3>
+            <p class="project__meta">Proyecto personal, octubre y noviembre de 2026</p>
+            <p class="project__lead">
+              Demo de un marketplace de reservas con asistente de IA. Los negocios gestionan su agenda y los clientes
+              reservan con una interfaz de toda la vida o hablando con el asistente. No es un producto ni tiene
+              usuarios reales: lo hice para enseñar cómo trabajo de principio a fin.
+            </p>
+            <div class="actions">
+              <a class="btn btn--solid" href="https://nicosimmi.github.io/AgendIA/" target="_blank" rel="noopener noreferrer">Probar la demo</a>
+              <a class="btn" href="https://github.com/nicosimmi/AgendIA" target="_blank" rel="noopener noreferrer">Ver el código</a>
+            </div>
+          </header>
+
+          <div class="shots">
+            <figure class="shot shot--main">
+              <img src="img/agendia-asistente.webp" width="1280" height="760" loading="lazy" alt="El asistente de AgendIA propone una reserva de corte de pelo con su tarjeta de confirmación." />
+              <figcaption>El asistente propone la reserva y la persona la confirma con un clic.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="img/agendia-negocio.webp" width="1280" height="760" loading="lazy" alt="Ficha de un negocio en AgendIA con sus servicios y el selector de reserva." />
+              <figcaption>Ficha del negocio y reserva en pocos pasos.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="img/agendia-agenda.webp" width="1280" height="760" loading="lazy" alt="Agenda del negocio en AgendIA con la reserva de un cliente." />
+              <figcaption>La reserva aparece en la agenda del negocio.</figcaption>
+            </figure>
+          </div>
+
+          <ul class="points">
+            <li>
+              <h4>El asistente propone, el servidor confirma</h4>
+              <p>Al modelo solo se le exponen herramientas de lectura y de propuesta, así que aunque alguien lo manipule con texto malicioso no puede reservar. Lo evalúo con 51 casos, incluida la inyección de prompts.</p>
             </li>
-            <li class="job reveal">
-              <p class="job__date">Feb - Mar 2025<br />Prácticas</p>
-              <div>
-                <h3 class="h3 h3--sm">Desarrollador web</h3>
-                <p class="job__org">Player Factory Paintball</p>
-                <ul class="list">
-                  <li>Modificación, actualización y mantenimiento técnico de varias plataformas web de la empresa.</li>
-                  <li>Optimización de la interfaz de usuario y resolución de incidencias en producción.</li>
-                </ul>
-              </div>
+            <li>
+              <h4>Servidor MCP propio</h4>
+              <p>Cualquier cliente compatible, como Claude Desktop, puede buscar y reservar con tokens que caducan, se revocan y llevan permisos separados.</p>
             </li>
-            <li class="job reveal">
-              <p class="job__date">2024 - 2026<br />Formación</p>
-              <div>
-                <h3 class="h3 h3--sm">Técnico Superior en Desarrollo de Aplicaciones Web</h3>
-                <p class="job__org">ILERNA Córdoba</p>
+            <li>
+              <h4>Aislamiento entre negocios</h4>
+              <p>El identificador del negocio sale siempre de la sesión. Un test recorre todas las rutas de la API y el CI falla si falta alguna.</p>
+            </li>
+            <li>
+              <h4>Emails que no se pierden</h4>
+              <p>Cada reserva anota un evento en la misma transacción (patrón outbox) y n8n lo entrega con reintentos.</p>
+            </li>
+          </ul>
+
+          <p class="note">
+            Es una demo: funciona entera en el navegador, sin servidor ni registro, y todos los negocios, reservas y
+            personas son ficticios. El asistente sigue un guion porque un modelo real necesita una API de pago; el
+            código y la configuración del modelo están en el repositorio.
+          </p>
+
+          <ul class="chips" aria-label="Tecnologías de AgendIA">
+            <li>TypeScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Fastify</li><li>Zod</li>
+            <li>PostgreSQL</li><li>Drizzle</li><li>MCP</li><li>n8n</li><li>Docker Compose</li>
+            <li>Vitest</li><li>Playwright</li><li>GitHub Actions</li>
+          </ul>
+        </article>
+
+        <article class="project project--small" aria-labelledby="t-blue">
+          <h3 id="t-blue" class="h3">Blueaitracking</h3>
+          <p>Proyecto que desarrollé junto al equipo de AICOR durante mi etapa en la empresa.</p>
+        </article>
+      </section>
+
+      <section class="sec wrap" id="trayectoria" aria-labelledby="t-tray">
+        <h2 id="t-tray" class="h2">Trayectoria.</h2>
+
+        <div class="gantt" id="gantt">
+          <p class="gantt__key">
+            <span><i class="b"></i>Empleo y proyectos</span>
+            <span><i class="b b--light"></i>Prácticas y formación</span>
+            <span><i class="key-now"></i>Hoy</span>
+          </p>
+          <div class="gantt__axis" aria-hidden="true">
+            <span class="y24">2024</span><span class="y25">2025</span><span class="y26">2026</span>
+          </div>
+          <ol class="gantt__rows">
+            <li class="row">
+              <div class="row__info">
+                <h3 class="h3">AgendIA</h3>
+                <p class="row__org">Proyecto personal</p>
+                <p class="row__when">Oct - Nov 2026</p>
               </div>
+              <div class="track" aria-hidden="true"><span class="b b--agendia"></span></div>
+            </li>
+            <li class="row">
+              <div class="row__info">
+                <h3 class="h3">Desarrollador Full Stack</h3>
+                <p class="row__org">AICOR Consultores Informáticos, consultoría tecnológica</p>
+                <p class="row__when">Ene - Mar 2026 en prácticas, Jun - Sep 2026 como empleado</p>
+              </div>
+              <div class="track" aria-hidden="true"><span class="b b--light b--aicor1"></span><span class="b b--aicor2"></span></div>
+              <ul class="row__list">
+                <li>Desarrollo web full stack con PHP y JavaScript y gestión de WordPress, del desarrollo al despliegue.</li>
+                <li>Flujos de automatización e integraciones con n8n y scripts en Python.</li>
+                <li>Entornos de desarrollo locales con Docker y control de versiones en GitHub.</li>
+                <li>Diseño y optimización de bases de datos relacionales (MySQL y PostgreSQL).</li>
+              </ul>
+            </li>
+            <li class="row">
+              <div class="row__info">
+                <h3 class="h3">Desarrollador web</h3>
+                <p class="row__org">Player Factory Paintball</p>
+                <p class="row__when">Feb - Mar 2025 en prácticas</p>
+              </div>
+              <div class="track" aria-hidden="true"><span class="b b--light b--pf"></span></div>
+              <ul class="row__list">
+                <li>Modificación, actualización y mantenimiento técnico de varias plataformas web de la empresa.</li>
+                <li>Mejoras en la interfaz y resolución de incidencias en producción.</li>
+              </ul>
+            </li>
+            <li class="row">
+              <div class="row__info">
+                <h3 class="h3">Técnico Superior en Desarrollo de Aplicaciones Web</h3>
+                <p class="row__org">ILERNA Córdoba</p>
+                <p class="row__when">2024 - 2026</p>
+              </div>
+              <div class="track" aria-hidden="true"><span class="b b--light b--ilerna"></span></div>
             </li>
           </ol>
         </div>
       </section>
 
-      <section class="sec" id="stack" aria-labelledby="t-stack">
-        <div class="wrap">
-          <p class="eyebrow reveal"><span>04</span> Stack</p>
-          <h2 id="t-stack" class="h2 reveal">Con qué trabajo.</h2>
-          <dl class="stack reveal">
-            <div><dt>Lenguajes</dt><dd>HTML5, CSS3, JavaScript, TypeScript, PHP, Python, Java, SQL</dd></div>
-            <div><dt>Frontend</dt><dd>React, Vite, Tailwind CSS</dd></div>
-            <div><dt>Backend</dt><dd>Node.js, Fastify, Laravel, Django</dd></div>
-            <div><dt>Bases de datos</dt><dd>PostgreSQL, MySQL, Drizzle ORM</dd></div>
-            <div><dt>Testing y CI/CD</dt><dd>Vitest, Playwright, GitHub Actions</dd></div>
-            <div><dt>DevOps</dt><dd>Docker, Docker Compose, Git, GitHub</dd></div>
-            <div><dt>IA</dt><dd>MCP, evaluación de LLMs</dd></div>
-            <div><dt>Automatización</dt><dd>n8n</dd></div>
-            <div><dt>CMS y e-commerce</dt><dd>WordPress, WooCommerce, Elementor</dd></div>
-          </dl>
-          <p class="soft reveal">Buena comunicación, resolución de problemas, trabajo en equipo y adaptabilidad, gestión del tiempo.</p>
-        </div>
-      </section>
-
-      <section class="sec contact" id="contacto" aria-labelledby="t-contacto">
-        <div class="wrap">
-          <p class="eyebrow reveal"><span>05</span> Contacto</p>
-          <h2 id="t-contacto" class="contact__title reveal">Hablemos.</h2>
-          <p class="contact__lead reveal">Busco incorporarme a un equipo de desarrollo. Escríbeme por email o por LinkedIn.</p>
-          <div class="hero__cta reveal">
-            <a class="btn btn--solid" href="mailto:simonmilanonicolas@gmail.com">simonmilanonicolas@gmail.com</a>
-            <a class="btn" href="https://www.linkedin.com/in/nicolas-simon-milano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a class="btn" href="https://github.com/nicosimmi" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
+      <section class="sec wrap contact" id="contacto" aria-labelledby="t-contacto">
+        <h2 id="t-contacto" class="h2">Hablemos.</h2>
+        <p class="contact__lead">Busco incorporarme a un equipo de desarrollo. Escríbeme o elige un hueco en <a href="#inicio">mi semana</a>.</p>
+        <a class="contact__mail" href="mailto:simonmilanonicolas@gmail.com">simonmilanonicolas@gmail.com</a>
+        <div class="actions">
+          <a class="btn" href="https://www.linkedin.com/in/nicolas-simon-milano/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/nicosimmi" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </section>
     </main>
 
-    <footer class="foot">
-      <div class="wrap foot__in">
-        <p>© <span id="year">2026</span> Nicolás Simón Milano</p>
-        <p>Hecho a mano con HTML, CSS y JavaScript. Sin cookies ni rastreadores.</p>
-      </div>
+    <footer class="foot wrap">
+      <p>© <span id="year">2026</span> Nicolás Simón Milano</p>
+      <p>Hecho a mano con HTML, CSS y JavaScript. Sin cookies ni rastreadores.</p>
     </footer>
 
     <script src="main.js" defer></script>
