@@ -768,6 +768,13 @@ button {
     order: 1;
     top: 6rem;
   }
+  /* El segundo proyecto pone la captura a la izquierda, para alternar */
+  .story--flip {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+  .story--flip .story__stage {
+    order: 0;
+  }
   .step {
     min-height: 62vh;
   }
@@ -814,6 +821,18 @@ button {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--muted);
+}
+.project--next {
+  margin-top: clamp(5rem, 10vw, 8rem);
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  border-top: 1px solid var(--line);
+}
+.tag--live {
+  background: color-mix(in srgb, #1f9d6b 16%, transparent);
+  color: #157a52;
+}
+:root[data-theme="dark"] .tag--live {
+  color: #5fd4a2;
 }
 .project--small {
   display: grid;
@@ -925,6 +944,9 @@ button {
 }
 .b--aicor2 {
   grid-column: 22 / 26;
+}
+.b--vanessa {
+  grid-column: 27 / 28;
 }
 .b--agendia {
   grid-column: 26 / 28;

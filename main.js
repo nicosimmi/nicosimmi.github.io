@@ -177,31 +177,36 @@ document.getElementById("offer-reset").addEventListener("click", () => {
   picked = null;
 });
 
-// Historia de AgendIA: manda el paso más cercano al centro de la pantalla
-const story = document.getElementById("story");
-const steps = [...story.querySelectorAll(".step")];
-const shots = [...story.querySelectorAll(".stage__shot")];
-story.classList.add("is-live");
-let step = -1;
-function syncStory() {
+// Historias de proyecto: en cada una manda el paso más cercano al centro de la pantalla
+const stories = [...document.querySelectorAll(".story")].map((story) => {
+  story.classList.add("is-live");
+  return {
+    steps: [...story.querySelectorAll(".step")],
+    shots: [...story.querySelectorAll(".stage__shot")],
+    step: -1,
+  };
+});
+function syncStories() {
   const mid = innerHeight / 2;
-  let best = 0;
-  let dist = Infinity;
-  steps.forEach((el, i) => {
-    const r = el.getBoundingClientRect();
-    const d = Math.abs((r.top + r.bottom) / 2 - mid);
-    if (d < dist) {
-      dist = d;
-      best = i;
-    }
-  });
-  if (best === step) return;
-  step = best;
-  steps.forEach((el, k) => el.classList.toggle("is-active", k === best));
-  shots.forEach((el, k) => el.classList.toggle("is-on", k === best));
+  for (const s of stories) {
+    let best = 0;
+    let dist = Infinity;
+    s.steps.forEach((el, i) => {
+      const r = el.getBoundingClientRect();
+      const d = Math.abs((r.top + r.bottom) / 2 - mid);
+      if (d < dist) {
+        dist = d;
+        best = i;
+      }
+    });
+    if (best === s.step) continue;
+    s.step = best;
+    s.steps.forEach((el, k) => el.classList.toggle("is-active", k === best));
+    s.shots.forEach((el, k) => el.classList.toggle("is-on", k === best));
+  }
 }
-syncStory();
-addEventListener("scroll", syncStory, { passive: true });
+syncStories();
+addEventListener("scroll", syncStories, { passive: true });
 
 // Animaciones de scroll: si el navegador no las lleva por CSS, se escribe --p
 // (0 a 1) en cada elemento y el CSS lo convierte en tiempo de animación.

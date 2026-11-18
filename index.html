@@ -163,7 +163,7 @@
             </div>
           </header>
 
-          <div class="story" id="story">
+          <div class="story">
             <div class="story__stage">
               <figure class="stage__shot">
                 <img src="img/agendia-negocio.webp" width="1280" height="760" loading="lazy" alt="Ficha de un negocio en AgendIA con sus servicios y el selector de reserva." />
@@ -226,6 +226,76 @@
           </ul>
         </article>
 
+        <article class="project project--next" aria-labelledby="t-vanessa">
+          <header class="project__head">
+            <h3 id="t-vanessa" class="project__name sd-in">Vanessa Modas <span class="tag tag--live">En producción</span></h3>
+            <p class="project__meta">Tienda online, noviembre de 2026</p>
+            <p class="project__lead">
+              Tienda online para Vanessa Modas, un comercio de ropa, hogar y bebé. La clienta elige, pide desde el
+              móvil y paga al confirmar el pedido, sin pasarela de pago. La tienda recibe cada pedido por email y
+              por Telegram, y lo gestiona todo desde su propio panel.
+            </p>
+            <div class="actions">
+              <a class="btn btn--solid" href="https://vanessa-modas.vercel.app/" target="_blank" rel="noopener noreferrer">Ver la tienda</a>
+            </div>
+          </header>
+
+          <div class="story story--flip">
+            <div class="story__stage">
+              <figure class="stage__shot">
+                <img src="img/vanessa-portada.webp" width="1280" height="760" loading="lazy" alt="Portada de la tienda Vanessa Modas con el nombre a gran tamaño sobre una foto de moda." />
+              </figure>
+              <figure class="stage__shot">
+                <img src="img/vanessa-novedades.webp" width="1280" height="760" loading="lazy" alt="Categorías de la tienda y lista de prendas recién llegadas con su precio." />
+              </figure>
+              <figure class="stage__shot">
+                <img src="img/vanessa-producto.webp" width="1280" height="760" loading="lazy" alt="Ficha de un vestido con selector de talla y color, botón de añadir al carrito y enviar por WhatsApp." />
+              </figure>
+            </div>
+            <div class="story__steps">
+              <div class="step">
+                <p class="step__n">1</p>
+                <h4>Una portada con personalidad</h4>
+                <p>Diseño editorial a pantalla completa, con tipografía grande y animaciones al desplazarse, pensado primero para el móvil.</p>
+              </div>
+              <div class="step">
+                <p class="step__n">2</p>
+                <h4>El catálogo, siempre al día</h4>
+                <p>Categorías, novedades y buscador. La tienda sube productos, fotos, tallas y stock desde su panel, sin tocar código.</p>
+              </div>
+              <div class="step">
+                <p class="step__n">3</p>
+                <h4>Pedir es fácil</h4>
+                <p>Talla, color y al carrito. Cada prenda se puede compartir por WhatsApp, y al pedir llega el aviso a la tienda al momento.</p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="points">
+            <li>
+              <h4>El precio lo pone la base de datos</h4>
+              <p>El pedido se crea en una función de PostgreSQL que toma precios y nombres de la propia base de datos y descuenta el stock en la misma operación, así que no se puede vender lo que no hay ni cambiar un precio desde el navegador.</p>
+            </li>
+            <li>
+              <h4>Permisos en cada tabla</h4>
+              <p>Con Row Level Security de Supabase, cada clienta solo ve sus pedidos y solo la administradora puede tocar productos y categorías.</p>
+            </li>
+            <li>
+              <h4>Seguridad de verdad</h4>
+              <p>Cabeceras y política CSP, límites de intentos por IP y por usuaria, validación del pedido en el servidor y stock devuelto al cancelar.</p>
+            </li>
+            <li>
+              <h4>Sin cuotas</h4>
+              <p>Next.js en Vercel y Supabase, ambos en su plan gratuito. Los avisos van por Gmail y Telegram, también gratis.</p>
+            </li>
+          </ul>
+
+          <ul class="chips" aria-label="Tecnologías de Vanessa Modas">
+            <li>Next.js</li><li>React</li><li>Supabase</li><li>PostgreSQL</li><li>Row Level Security</li>
+            <li>Nodemailer</li><li>API de Telegram</li><li>Vercel</li>
+          </ul>
+        </article>
+
         <article class="project project--small" aria-labelledby="t-blue">
           <h3 id="t-blue" class="h3">Blueaitracking</h3>
           <p>Proyecto que desarrollé junto al equipo de AICOR durante mi etapa en la empresa.</p>
@@ -245,6 +315,14 @@
             <span class="y24">2024</span><span class="y25">2025</span><span class="y26">2026</span>
           </div>
           <ol class="gantt__rows">
+            <li class="row">
+              <div class="row__info">
+                <h3 class="h3">Vanessa Modas</h3>
+                <p class="row__org">Tienda online para un comercio</p>
+                <p class="row__when">Nov 2026</p>
+              </div>
+              <div class="track sd-in" aria-hidden="true"><span class="b sd-in b--vanessa"></span></div>
+            </li>
             <li class="row">
               <div class="row__info">
                 <h3 class="h3">AgendIA</h3>
